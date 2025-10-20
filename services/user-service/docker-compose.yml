@@ -1,0 +1,35 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: pass
+      POSTGRES_DB: guarantee
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7
+    restart: always
+    ports:
+      - "6379:6379"
+
+  user-service:
+    build: .
+    restart: always
+    environment:
+      DATABASE_URL: postgres://user:pass@postgres:5432/guarantee
+      REDIS_URL: redis://redis:6379
+      I18N_DIR: ./src/i18n/locales
+    ports:
+      - "3001:3000"
+    depends_on:
+      - postgres
+      - redis
+
+volumes:
+  pgdata:
