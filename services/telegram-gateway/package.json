@@ -1,0 +1,24 @@
+{
+  "name": "telegram-gateway",
+  "version": "1.0.0",
+  "description": "Mock Telegram Gateway for Guarantee Bot",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "nest start",
+    "start:dev": "nest start --watch"
+  },
+  "dependencies": {
+    "@nestjs/common": "^10.3.0",
+    "@nestjs/core": "^10.3.0",
+    "@nestjs/platform-express": "^10.3.0",
+    "axios": "^1.7.0",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.8.0"
+  },
+  "devDependencies": {
+    "@nestjs/cli": "^10.3.0",
+    "@nestjs/schematics": "^10.3.0",
+    "@nestjs/testing": "^10.3.0",
+    "typescript": "^5.4.5"
+  }
+}
